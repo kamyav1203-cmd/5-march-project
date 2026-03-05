@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Login Activity</title>
+</head>
+
+<body>
+
+<h2>User Login</h2>
+
+<input id="username" placeholder="Enter Username">
+<button onclick="login()">Login</button>
+
+<script>
+
+// Fake logger object to simulate sending logs to server
+const logger = {
+log: function(level, message, data){
+console.log("Level:", level);
+console.log("Message:", message);
+console.log("Data:", data);
+
+/* Simulate sending log to remote server */
+fetch("https://example.com/log", {
+method: "POST",
+headers:{
+"Content-Type":"application/json"
+},
+body: JSON.stringify({
+level: level,
+message: message,
+data: data
+})
+})
+.then(res => console.log("Log sent to server"))
+.catch(err => console.log("Error sending log", err));
+
+}
+};
+
+function login(){
+
+const user = document.getElementById("username").value;
+
+logger.log("INFO", "User Login Attempt", {username:user});
+
+}
+
+</script>
+
+</body>
+</html>

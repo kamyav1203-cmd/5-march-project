@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Page Load Performance</title>
+
+<script>
+
+// Start timer when page begins loading
+const start = performance.now();
+
+// Logger object
+const logger = {
+log: function(level,message,data){
+console.log("Level:",level);
+console.log("Message:",message);
+console.log("Data:",data);
+}
+};
+
+// When page finishes loading
+window.onload = function(){
+
+const end = performance.now();
+
+const loadTime = end - start;
+
+logger.log("INFO","Page Load Time:", loadTime + " ms");
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>Page Load Performance Tracker</h2>
+<p>This page tracks how long the page takes to load.</p>
+
+</body>
+
+</html>
