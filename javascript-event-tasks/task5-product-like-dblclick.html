@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Task 5 - Double Click to Like Product</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        #product{
+            width: 200px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #product:hover{
+            transform: scale(1.05);
+        }
+
+        #likesText{
+            margin-top: 15px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Product Preview</h2>
+
+<p>Double click the image to like the product</p>
+
+<img id="product" src="product.jpg" alt="Product Image">
+
+<p id="likesText">Likes: <span id="count">0</span></p>
+
+<script>
+
+let likes = 0;
+
+document.getElementById("product").addEventListener("dblclick", function(){
+
+    likes++;
+
+    document.getElementById("count").innerText = likes;
+
+    console.log("Product liked:", likes);
+
+});
+
+</script>
+
+</body>
+</html>
